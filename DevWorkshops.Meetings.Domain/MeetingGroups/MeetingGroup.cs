@@ -38,6 +38,9 @@ namespace DevWorkshops.Meetings.Domain.MeetingGroups
             _members.Add(new MeetingGroupMember(this.Id, creatorId, MeetingGroupMemberRole.Organizer()));
         }
 
-        
+        public void JoinMember(Guid memberId, MeetingGroupMemberRole role)
+        {
+            _members.Add(new MeetingGroupMember(this.Id, memberId, role));
+        }
     }
 }

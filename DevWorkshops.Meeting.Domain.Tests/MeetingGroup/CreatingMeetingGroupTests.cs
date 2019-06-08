@@ -31,6 +31,11 @@ namespace DevWorkshops.Meeting.Domain.Tests.MeetingGroup
             Assert.That(meetingGroupCreated.MeetingGroupId, Is.EqualTo(meetingGroup.Id));
 
             Assert.That(allDomainEvents[1], Is.TypeOf<MeetingGroupMemberJoinedDomainEvent>());
+
+            var meetingGroupMemberJoned = allDomainEvents[1] as MeetingGroupMemberJoinedDomainEvent;
+
+            Assert.That(meetingGroupMemberJoned.MemberId, Is.EqualTo(creatorId));
+            Assert.That(meetingGroupMemberJoned.Role, Is.EqualTo(MeetingGroupMemberRole.Organizer()));
         }
     }
 }
